@@ -1,0 +1,154 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+model Tenant {
+  id                      String   @id @default(cuid())
+  nome                    String
+  cnpj                    String?  @unique
+  plano                   Plano    @default(ESSENCIAL)
+  stripeCustomerId        String?  @unique
+  stripeSubscriptionId    String?  @unique
+  stripeStatus            String?
+  horarioExpedienteInicio String   @default("09:00")
+  horarioExpedienteFim    String   @default("18:00")
+  whatsappPhoneNumberId   String?  @unique
+  instagramUserId         String?  @unique
+  onboardingCompleto      Boolean  @default(false)
+  criadoEm                DateTime @default(now())
+  atualizadoEm            DateTime @updatedAt
+  users        User[]
+  invoices     Invoice[]
+  reports      Report[]
+  leads        Lead[]
+  integrations Integration[]
+}
+model User {
+  id       String   @id @default(cuid())
+  tenantId String
+  email    String   @unique
+  name     String?
+  role     Role     @default(MEMBER)
+  criadoEm DateTime @default(now())
+  tenant   Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  accounts Account[]
+  sessions Session[]
+}
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+}
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  @@unique([identifier, token])
+}
+model Invoice {
+  id               String   @id @default(cuid())
+  tenantId         String
+  numeroNf         String
+  cnpjEmitente     String
+  cnpjDestinatario String
+  tipo             TipoNf
+  dataEmissao      DateTime
+  valorTotal       Decimal  @db.Decimal(15, 2)
+  impostosJson     Json
+  status           StatusNf @default(PENDENTE)
+  s3Url            String?
+  criadoEm         DateTime @default(now())
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  @@index([tenantId])
+  @@index([tenantId, dataEmissao])
+}
+model Report {
+  id           String    @id @default(cuid())
+  tenantId     String
+  semanaInicio DateTime
+  semanaFim    DateTime
+  pdfS3Url     String?
+  enviadoEm    DateTime?
+  criadoEm     DateTime  @default(now())
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  @@index([tenantId])
+}
+model Lead {
+  id               String     @id @default(cuid())
+  tenantId         String
+  canal            CanalLead
+  contato          String
+  mensagensJson    Json       @default("[]")
+  qualificacaoJson Json       @default("{}")
+  status           StatusLead @default(NOVO)
+  criadoEm         DateTime   @default(now())
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  @@index([tenantId])
+}
+model Integration {
+  id                   String          @id @default(cuid())
+  tenantId             String
+  sistema              SistemaContabil
+  credentialsEncrypted String          @db.Text
+  ativo                Boolean         @default(true)
+  criadoEm             DateTime        @default(now())
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  @@unique([tenantId, sistema])
+}
+enum Plano { 
+  ESSENCIAL 
+  COMPLETO 
+}
+enum Role { 
+  OWNER 
+  ADMIN 
+  MEMBER 
+}
+enum TipoNf { 
+  ENTRADA_PRODUTO 
+  SAIDA_PRODUTO 
+  ENTRADA_SERVICO 
+  SAIDA_SERVICO 
+}
+enum StatusNf { 
+  PENDENTE 
+  PROCESSANDO 
+  PROCESSADO 
+  ERRO 
+}
+enum CanalLead { 
+  WHATSAPP 
+  INSTAGRAM 
+}
+enum StatusLead { 
+  NOVO 
+  QUALIFICADO 
+  AGENDADO 
+  PERDIDO 
+}
+enum SistemaContabil { 
+  DOMINIO 
+  TOTVS 
+  CONTAAZUL 
+}
