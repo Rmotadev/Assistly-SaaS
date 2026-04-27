@@ -1,10 +1,11 @@
+import { redirect } from 'next/navigation'
 import { getSession } from '@/lib/auth'
 import { db } from '@/lib/db'
-import { assertTenant } from '@/lib/tenant'
 
 export default async function DashboardPage() {
   const session = await getSession()
-  const tenantId = assertTenant(session?.user?.tenantId)
+  if (!session?.user?.tenantId) redirect('/onboarding')
+  const tenantId = session.user.tenantId
   const tenant = await db.tenant.findUnique({ where: { id: tenantId } })
 
   return (
