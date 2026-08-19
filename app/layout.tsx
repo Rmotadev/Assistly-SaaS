@@ -20,11 +20,19 @@ const anton = Anton({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXTAUTH_URL || 'http://localhost:3000'),
-  title: "Assistly SaaS",
-  description: "Plataforma de automação contábil.",
+  title: "Assistly | Automação de Agentes de IA para Contadores",
+  description: "Três agentes de IA que digitam suas notas fiscais, geram relatórios semanais e qualificam leads.",
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
   openGraph: {
-    title: "Assistly SaaS",
-    description: "Plataforma de automação contábil.",
+    title: "Assistly | Automação de Agentes de IA para Contadores",
+    description: "Três agentes de IA que digitam suas notas fiscais, geram relatórios semanais e qualificam leads.",
   },
 };
 
