@@ -1,16 +1,5 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-
-export const metadata: Metadata = {
-  title: "Assistly | Automação de Agentes de IA para Contadores",
-  description: "Três agentes de IA que digitam suas notas fiscais, geram relatórios semanais e qualificam leads — enquanto você dorme.",
-  openGraph: {
-    title: "Assistly | Automação de Agentes de IA para Contadores",
-    description: "Três agentes de IA que digitam suas notas fiscais, geram relatórios semanais e qualificam leads — enquanto você dorme.",
-    images: ["/og-image.png"],
-  },
-}
-import { PricingToggle } from '@/components/landing/PricingToggle'
 import { FaqAccordion } from '@/components/landing/FaqAccordion'
 import { DemoModal } from '@/components/landing/DemoModal'
 import {
@@ -21,6 +10,16 @@ import {
   CheckCircle2,
   Sparkles,
 } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: "Assistly | Automação de Agentes de IA para Contadores",
+  description: "Três agentes de IA que digitam suas notas fiscais, geram relatórios semanais e qualificam leads — enquanto você dorme.",
+  openGraph: {
+    title: "Assistly | Automação de Agentes de IA para Contadores",
+    description: "Três agentes de IA que digitam suas notas fiscais, geram relatórios semanais e qualificam leads — enquanto você dorme.",
+    images: ["/og-image.png"],
+  },
+}
 
 export default function MarketingPage() {
   return (
@@ -37,15 +36,17 @@ export default function MarketingPage() {
             </Link>
             <nav className="hidden md:flex gap-8">
               <Link href="#funcionalidades" className="font-bold text-brutal-charcoal/60 hover:text-brutal-charcoal brutal-transition">Funcionalidades</Link>
-              <Link href="#precos" className="font-bold text-brutal-charcoal/60 hover:text-brutal-charcoal brutal-transition">Preços</Link>
+              <Link href="#piloto" className="font-bold text-brutal-charcoal/60 hover:text-brutal-charcoal brutal-transition">Piloto</Link>
               <Link href="#faq" className="font-bold text-brutal-charcoal/60 hover:text-brutal-charcoal brutal-transition">FAQ</Link>
             </nav>
-            <Link
-              href="/register"
+            <a
+              href="https://wa.me/5551982759010?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20programa%20piloto%20do%20Assistly"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 sm:px-6 sm:py-2.5 bg-brutal-yellow text-brutal-charcoal border-3 sm:border-4 border-brutal-charcoal font-bold text-sm sm:text-base brutal-shadow brutal-transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
             >
-              Começar grátis
-            </Link>
+              Participar do piloto
+            </a>
           </div>
         </div>
       </header>
@@ -69,17 +70,19 @@ export default function MarketingPage() {
               3 agentes de IA que digitam suas notas fiscais, geram relatórios semanais e qualificam leads — enquanto você dorme.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12 sm:mb-16">
-              <Link
-                href="/register"
+              <a
+                href="https://wa.me/5551982759010?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20programa%20piloto%20do%20Assistly"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-4 sm:px-10 sm:py-5 bg-brutal-charcoal text-white font-bold text-base sm:text-lg border-4 border-brutal-charcoal shadow-[6px_6px_0px_0px_rgba(255,225,124,1)] sm:shadow-[8px_8px_0px_0px_rgba(255,225,124,1)] brutal-transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(255,225,124,1)]"
               >
-                Começar 14 dias grátis
+                Quero participar do piloto
                 <ArrowRight className="w-5 h-5" />
-              </Link>
+              </a>
               <DemoModal />
             </div>
             <p className="font-bold text-sm sm:text-base text-brutal-charcoal/40">
-              Usado por <span className="text-brutal-charcoal/70">+200</span> escritórios contábeis
+              Programa piloto — vagas limitadas
             </p>
           </div>
         </section>
@@ -268,41 +271,65 @@ export default function MarketingPage() {
           </div>
         </section>
 
-        {/* Preços */}
-        <section id="precos" className="py-16 sm:py-28 bg-brutal-grid-light">
+        {/* Programa Piloto */}
+        <section id="piloto" className="py-16 sm:py-28 bg-brutal-grid-light">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-brutal-charcoal leading-[0.85] mb-4 sm:mb-6">
-              Planos{' '}
+              Programa{' '}
               <span className="relative inline-block">
-                <span className="relative z-10">simples.</span>
+                <span className="relative z-10">piloto.</span>
                 <span className="absolute -inset-1 sm:-inset-2 bg-brutal-yellow -rotate-1 -z-0" />
               </span>
             </h2>
-            <p className="text-base sm:text-lg text-brutal-charcoal/50 font-medium mb-12 sm:mb-20">
-              Escolha o plano ideal para seu escritório.
+            <p className="text-base sm:text-lg text-brutal-charcoal/50 font-medium mb-12 sm:mb-20 max-w-2xl mx-auto">
+              Estamos selecionando escritórios contábeis para a fase inicial. Você usa de graça, nós aprendemos com o seu fluxo real.
             </p>
-            <PricingToggle />
+            <div className="max-w-2xl mx-auto bg-white border-4 border-brutal-charcoal p-6 sm:p-10 text-left brutal-shadow">
+              <h3 className="font-display text-2xl sm:text-4xl text-brutal-charcoal mb-6">O que está incluso</h3>
+              <ul className="space-y-4 mb-8">
+                {[
+                  '30 dias gratuitos — sem cartão',
+                  'Acesso aos 3 agentes (NF, Relatório, Leads)',
+                  'Configuração feita por nós',
+                  'Suporte direto com o fundador',
+                  'Sem compromisso após o teste',
+                  'Condições especiais para quem ficar',
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-brutal-charcoal shrink-0" />
+                    <span className="font-bold text-brutal-charcoal">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://wa.me/5551982759010?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20programa%20piloto%20do%20Assistly"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full px-8 py-4 bg-brutal-yellow text-brutal-charcoal border-4 border-brutal-charcoal font-bold text-base sm:text-lg brutal-shadow brutal-transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none text-center"
+              >
+                Quero participar do piloto
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </section>
 
-        {/* Depoimentos */}
+        {/* Por que entrar agora */}
         <section className="py-16 sm:py-28 bg-brutal-charcoal text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="font-display text-4xl sm:text-6xl md:text-8xl leading-[0.85] mb-12 sm:mb-20">
-              O que <span className="text-brutal-yellow">contadores</span> dizem
+              Por que <span className="text-brutal-yellow">entrar agora</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               {[
-                { n: 'Maria Souza', c: 'Sócia, São Paulo', d: '"O Agente NF reduziu nosso trabalho manual em 90%. O ROI veio na primeira semana."' },
-                { n: 'Carlos Lima', c: 'Contador, Porto Alegre', d: '"O relatório semanal automático diferencia meu escritório. Zero Excel agora."' },
-                { n: 'Ana Ferreira', c: 'Gerente, Belo Horizonte', d: '"Não perdemos mais leads no fim de semana. A qualificação da IA é precisa."' },
-              ].map((t, i) => (
+                { title: 'Gratuito', subtitle: 'Sem risco', desc: '30 dias completos sem pagar nada. Sem cartão de crédito. Sem pegadinha.' },
+                { title: 'Prioridade', subtitle: 'Acesso direto', desc: 'Suporte direto com o fundador. Suas sugestões moldam o produto.' },
+                { title: 'Exclusivo', subtitle: 'Condições especiais', desc: 'Participantes do piloto garantem preço diferenciado quando os planos entrarem.' },
+              ].map((card, i) => (
                 <div key={i} className="border-4 border-white/10 p-8 text-left brutal-transition hover:bg-white/5">
-                  <p className="font-medium leading-relaxed mb-8 opacity-80">{t.d}</p>
-                  <div>
-                    <p className="font-bold text-brutal-yellow">{t.n}</p>
-                    <p className="text-sm text-brutal-sage">{t.c}</p>
-                  </div>
+                  <p className="font-bold text-brutal-yellow text-xl mb-1">{card.title}</p>
+                  <p className="text-sm text-brutal-sage mb-6">{card.subtitle}</p>
+                  <p className="font-medium leading-relaxed opacity-80">{card.desc}</p>
                 </div>
               ))}
             </div>
@@ -326,15 +353,17 @@ export default function MarketingPage() {
               Comece a automatizar hoje
             </h2>
             <p className="text-base sm:text-xl font-bold opacity-60 mb-8 sm:mb-12">
-              14 dias grátis. Sem cartão. Configuração em 30 minutos.
+              30 dias gratuitos. Sem cartão. Vagas limitadas.
             </p>
-            <Link
-              href="/register"
+            <a
+              href="https://wa.me/5551982759010?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20programa%20piloto%20do%20Assistly"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-4 sm:px-12 sm:py-6 bg-brutal-charcoal text-white font-bold text-base sm:text-xl border-4 border-brutal-charcoal shadow-[6px_6px_0px_0px_rgba(255,255,255,0.3)] sm:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)] brutal-transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
             >
-              Criar minha conta grátis
+              Quero participar do piloto
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </a>
           </div>
         </section>
       </main>
@@ -351,7 +380,7 @@ export default function MarketingPage() {
             </div>
             <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-xs sm:text-sm font-bold text-brutal-sage">
               <Link href="#funcionalidades" className="hover:text-brutal-yellow brutal-transition">Funcionalidades</Link>
-              <Link href="#precos" className="hover:text-brutal-yellow brutal-transition">Preços</Link>
+              <Link href="#piloto" className="hover:text-brutal-yellow brutal-transition">Piloto</Link>
               <Link href="#faq" className="hover:text-brutal-yellow brutal-transition">FAQ</Link>
               <Link href="#" className="hover:text-brutal-yellow brutal-transition">Privacidade</Link>
               <Link href="#" className="hover:text-brutal-yellow brutal-transition">Termos</Link>
@@ -365,3 +394,4 @@ export default function MarketingPage() {
     </div>
   )
 }
+

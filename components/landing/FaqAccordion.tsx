@@ -10,8 +10,8 @@ const faqs = [
     answer: 'Não. O Assistly atua como uma camada inteligente por cima das suas ferramentas atuais. Exportamos os dados processados diretamente para o formato que seu sistema (Domínio, TOTVS, ContaAzul) já aceita.',
   },
   {
-    question: 'Como funciona o trial de 14 dias?',
-    answer: 'Você cria sua conta sem precisar inserir cartão de crédito e tem acesso a todos os recursos do plano escolhido por 14 dias.',
+    question: 'Como funciona o programa piloto?',
+    answer: 'Você usa os 3 agentes por 30 dias, sem custo e sem cartão de crédito. Nós configuramos tudo pra você. Em troca, pedimos feedback sobre o que funciona e o que precisa melhorar no seu fluxo.',
   },
   {
     question: 'Meus dados ficam seguros?',
@@ -22,12 +22,12 @@ const faqs = [
     answer: 'Sim. Na configuração inicial, você define o tom de voz e os padrões do seu escritório para as interações via WhatsApp e Instagram.',
   },
   {
-    question: 'Posso cancelar a qualquer momento?',
-    answer: 'Absolutamente. Sem contratos de fidelidade, cancele a qualquer instante direto no painel.',
+    question: 'Quanto custa após o piloto?',
+    answer: 'Ainda estamos definindo os planos com base no feedback dos primeiros escritórios. Participantes do piloto terão condições especiais garantidas.',
   },
   {
-    question: 'Quantas NFs posso processar?',
-    answer: 'No plano Essencial, até 500 NFs/mês. No plano Completo, processamento ilimitado.',
+    question: 'O agente erra na classificação de NFs?',
+    answer: 'O agente aprende com o histórico do seu escritório e melhora com o tempo. NFs com classificação ambígua são sinalizadas para revisão humana antes de exportar.',
   },
 ]
 

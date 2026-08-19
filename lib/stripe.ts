@@ -1,7 +1,7 @@
 import Stripe from 'stripe'
 import { Plano } from '@prisma/client'
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { 
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_key_for_build', { 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   apiVersion: '2024-06-20' as any
 })
