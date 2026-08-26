@@ -12,11 +12,11 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: "Assistly | Automação de Agentes de IA para Contadores",
-  description: "Três agentes de IA que digitam suas notas fiscais, geram relatórios semanais e qualificam leads — enquanto você dorme.",
+  title: "Assistly | Três agentes de IA para escritórios contábeis",
+  description: "Digitação de NF, relatório semanal e atendimento no WhatsApp — feito por IA e entregue direto no Domínio, TOTVS ou ContaAzul.",
   openGraph: {
-    title: "Assistly | Automação de Agentes de IA para Contadores",
-    description: "Três agentes de IA que digitam suas notas fiscais, geram relatórios semanais e qualificam leads — enquanto você dorme.",
+    title: "Assistly | Três agentes de IA para escritórios contábeis",
+    description: "Digitação de NF, relatório semanal e atendimento no WhatsApp — feito por IA e entregue direto no Domínio, TOTVS ou ContaAzul.",
     images: ["/og-image.png"],
   },
 }
@@ -56,18 +56,18 @@ export default function MarketingPage() {
         <section className="bg-brutal-grid-light pt-28 pb-20 sm:pt-40 sm:pb-32">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
             <div className="inline-block bg-brutal-charcoal text-white px-3 py-1 sm:px-4 sm:py-1.5 font-bold text-xs sm:text-sm uppercase tracking-widest mb-8 sm:mb-10">
-              Agentes de IA para Contadores
+              Agentes de IA para escritórios contábeis
             </div>
             <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-brutal-charcoal leading-[0.85] mb-6 sm:mb-8">
-              Automatize o{' '}
+              Devolva{' '}
               <span className="relative inline-block">
-                <span className="relative z-10">trabalho</span>
+                <span className="relative z-10">40 horas</span>
                 <span className="absolute -inset-1 sm:-inset-2 bg-brutal-yellow -rotate-2 -z-0" />
               </span>{' '}
-              repetitivo.
+              por mês pra sua equipe.
             </h1>
             <p className="text-base sm:text-xl md:text-2xl font-medium text-brutal-charcoal/60 mb-10 sm:mb-12 max-w-2xl mx-auto">
-              3 agentes de IA que digitam suas notas fiscais, geram relatórios semanais e qualificam leads — enquanto você dorme.
+              Três agentes de IA cuidam da digitação de NFs, do relatório semanal e do atendimento no WhatsApp — integrados ao Domínio, TOTVS ou ContaAzul.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12 sm:mb-16">
               <a
@@ -82,7 +82,7 @@ export default function MarketingPage() {
               <DemoModal />
             </div>
             <p className="font-bold text-sm sm:text-base text-brutal-charcoal/40">
-              Programa piloto — vagas limitadas
+              Programa piloto · 10 escritórios por vez
             </p>
           </div>
         </section>
@@ -95,9 +95,9 @@ export default function MarketingPage() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               {[
-                { icon: FileText, title: 'Digitação de NFs', stat: '40h/mês', desc: 'desperdiçadas em transcrição' },
-                { icon: BarChart3, title: 'Relatórios manuais', stat: '3h/sexta', desc: 'montando planilhas' },
-                { icon: MessageCircle, title: 'Leads perdidos', stat: '67%', desc: 'sem resposta fora do horário' },
+                { icon: FileText, title: 'Digitação de NF', stat: '40h/mês', desc: 'transcrevendo XML no ERP' },
+                { icon: BarChart3, title: 'Relatório manual', stat: '3h/sexta', desc: 'montando planilha pro cliente' },
+                { icon: MessageCircle, title: 'Leads sem resposta', stat: '67%', desc: 'chegam fora do horário comercial' },
               ].map((item, i) => (
                 <div key={i} className="border-4 border-white/10 p-6 sm:p-8 text-center brutal-transition hover:bg-white/5">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brutal-yellow border-4 border-brutal-charcoal flex items-center justify-center mx-auto mb-4 sm:mb-6">
@@ -118,12 +118,12 @@ export default function MarketingPage() {
             <h2 className="font-display text-4xl sm:text-7xl md:text-8xl lg:text-9xl text-brutal-charcoal leading-[0.85] mb-4 sm:mb-6">
               Três agentes.{' '}
               <span className="relative inline-block">
-                <span className="relative z-10">Zero trabalho.</span>
+                <span className="relative z-10">Um resultado.</span>
                 <span className="absolute left-0 bottom-1 sm:bottom-2 w-full h-2 sm:h-4 bg-brutal-yellow -z-0" />
               </span>
             </h2>
             <p className="text-base sm:text-lg text-brutal-charcoal/50 font-medium mb-12 sm:mb-20 max-w-xl mx-auto">
-              Treinados especificamente para o fluxo contábil brasileiro.
+              Cada um faz uma coisa — bem. Treinados no fluxo contábil brasileiro.
             </p>
 
             <div className="space-y-8 text-left">
@@ -135,9 +135,9 @@ export default function MarketingPage() {
                       <FileText className="w-8 h-8 text-brutal-charcoal" />
                     </div>
                     <h3 className="font-display text-3xl sm:text-5xl mb-4">Agente NF</h3>
-                    <p className="text-brutal-charcoal/50 font-medium mb-8">Extração, classificação e exportação automática de notas fiscais.</p>
+                    <p className="text-brutal-charcoal/50 font-medium mb-8">Recebe o XML, extrai os dados, classifica e joga direto no seu ERP. Sem digitação.</p>
                     <ul className="space-y-4">
-                      {['Recebe XML da NF-e', 'Extrai campos automaticamente', 'Classifica por tipo', 'Exporta para Domínio/TOTVS/ContaAzul'].map(f => (
+                      {['Lê XML da NF-e em segundos', 'Extrai todos os campos fiscais', 'Classifica por CFOP e tipo', 'Exporta pro Domínio, TOTVS ou ContaAzul'].map(f => (
                         <li key={f} className="flex items-center gap-3">
                           <CheckCircle2 className="w-5 h-5 text-brutal-charcoal shrink-0" />
                           <span className="font-bold">{f}</span>
@@ -184,9 +184,9 @@ export default function MarketingPage() {
                       <BarChart3 className="w-8 h-8" />
                     </div>
                     <h3 className="font-display text-3xl sm:text-5xl mb-4">Agente Relatório</h3>
-                    <p className="text-brutal-charcoal/50 font-medium mb-8">Relatório financeiro automático toda sexta-feira às 17h.</p>
+                    <p className="text-brutal-charcoal/50 font-medium mb-8">Toda sexta às 17h, um PDF com entradas, saídas e alertas — no e-mail do cliente e no seu.</p>
                     <ul className="space-y-4">
-                      {['Envio automático toda sexta', 'Análise inteligente por IA', 'Detecta NFs duplicadas', 'PDF direto no e-mail'].map(f => (
+                      {['Envio automático toda sexta', 'Compara com a semana anterior', 'Sinaliza NFs duplicadas ou fora do padrão', 'PDF pronto pra enviar ao cliente'].map(f => (
                         <li key={f} className="flex items-center gap-3">
                           <CheckCircle2 className="w-5 h-5 text-brutal-charcoal shrink-0" />
                           <span className="font-bold">{f}</span>
@@ -205,9 +205,9 @@ export default function MarketingPage() {
                       <MessageCircle className="w-8 h-8 text-brutal-charcoal" />
                     </div>
                     <h3 className="font-display text-3xl sm:text-5xl mb-4">Agente Leads</h3>
-                    <p className="text-brutal-charcoal/50 font-medium mb-8">Resposta e qualificação 24/7 via WhatsApp e Instagram.</p>
+                    <p className="text-brutal-charcoal/50 font-medium mb-8">Responde no WhatsApp e Instagram 24/7, qualifica o lead e agenda o seu retorno na segunda de manhã.</p>
                     <ul className="space-y-4">
-                      {['Responde fora do expediente', 'Qualifica serviço e urgência', 'Agenda retorno humano', 'Notifica em tempo real'].map(f => (
+                      {['Atende fora do horário e no fim de semana', 'Identifica serviço, urgência e regime tributário', 'Marca o retorno humano na sua agenda', 'Te avisa quando o lead é quente'].map(f => (
                         <li key={f} className="flex items-center gap-3">
                           <CheckCircle2 className="w-5 h-5 text-brutal-charcoal shrink-0" />
                           <span className="font-bold">{f}</span>
@@ -243,9 +243,9 @@ export default function MarketingPage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-12">
               {[
-                { n: '01', t: 'Conecte', d: 'Integre seu sistema contábil atual.' },
-                { n: '02', t: 'Configure', d: 'Defina horários e canais de atendimento.' },
-                { n: '03', t: 'Automatize', d: 'Os agentes assumem o trabalho pesado.' },
+                { n: '01', t: 'Conecte', d: 'Plugue seu ERP e canais de atendimento.' },
+                { n: '02', t: 'Configure', d: 'Escolha horários, regras e tom de voz.' },
+                { n: '03', t: 'Automatize', d: 'Os agentes trabalham. Você acompanha.' },
               ].map((step, i) => (
                 <div key={i} className="group">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-brutal-yellow border-4 border-brutal-charcoal flex items-center justify-center font-display text-3xl sm:text-5xl text-brutal-charcoal mx-auto mb-6 brutal-shadow group-hover:shadow-none group-hover:translate-x-1 group-hover:translate-y-1 brutal-transition">
@@ -262,7 +262,7 @@ export default function MarketingPage() {
         {/* Integrações */}
         <section className="py-16 bg-white border-b-4 border-brutal-charcoal/10">
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <p className="font-bold text-brutal-charcoal/30 uppercase tracking-widest text-sm mb-8">Funciona com os sistemas que você já usa</p>
+            <p className="font-bold text-brutal-charcoal/30 uppercase tracking-widest text-sm mb-8">Já conversa com as ferramentas do seu dia a dia</p>
             <div className="flex flex-wrap justify-center gap-8">
               {['Domínio', 'TOTVS', 'ContaAzul', 'WhatsApp', 'Instagram'].map(b => (
                 <span key={b} className="font-display text-xl sm:text-3xl text-brutal-charcoal/20">{b}</span>
@@ -282,18 +282,18 @@ export default function MarketingPage() {
               </span>
             </h2>
             <p className="text-base sm:text-lg text-brutal-charcoal/50 font-medium mb-12 sm:mb-20 max-w-2xl mx-auto">
-              Estamos selecionando escritórios contábeis para a fase inicial. Você usa de graça, nós aprendemos com o seu fluxo real.
+              10 escritórios por vez. Você usa 30 dias por conta da casa — a gente aprende com o seu fluxo e melhora o produto junto.
             </p>
             <div className="max-w-2xl mx-auto bg-white border-4 border-brutal-charcoal p-6 sm:p-10 text-left brutal-shadow">
               <h3 className="font-display text-2xl sm:text-4xl text-brutal-charcoal mb-6">O que está incluso</h3>
               <ul className="space-y-4 mb-8">
                 {[
-                  '30 dias gratuitos — sem cartão',
-                  'Acesso aos 3 agentes (NF, Relatório, Leads)',
-                  'Configuração feita por nós',
-                  'Suporte direto com o fundador',
-                  'Sem compromisso após o teste',
-                  'Condições especiais para quem ficar',
+                  '30 dias grátis — sem cartão de crédito',
+                  'Os 3 agentes ativos desde o dia 1',
+                  'Configuração feita pela nossa equipe',
+                  'Linha direta com o fundador no WhatsApp',
+                  'Cancela quando quiser, sem burocracia',
+                  'Preço travado se decidir continuar',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-brutal-charcoal shrink-0" />
@@ -322,9 +322,9 @@ export default function MarketingPage() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               {[
-                { title: 'Gratuito', subtitle: 'Sem risco', desc: '30 dias completos sem pagar nada. Sem cartão de crédito. Sem pegadinha.' },
-                { title: 'Prioridade', subtitle: 'Acesso direto', desc: 'Suporte direto com o fundador. Suas sugestões moldam o produto.' },
-                { title: 'Exclusivo', subtitle: 'Condições especiais', desc: 'Participantes do piloto garantem preço diferenciado quando os planos entrarem.' },
+                { title: 'Grátis', subtitle: 'Sem risco', desc: '30 dias completos. Sem cartão, sem pegadinha, cancela num clique.' },
+                { title: 'Prioridade', subtitle: 'Acesso direto', desc: 'Fala com quem constrói. Sua opinião entra no roadmap na mesma semana.' },
+                { title: 'Exclusivo', subtitle: 'Preço travado', desc: 'Quem entra no piloto congela o preço quando os planos comerciais lançarem.' },
               ].map((card, i) => (
                 <div key={i} className="border-4 border-white/10 p-8 text-left brutal-transition hover:bg-white/5">
                   <p className="font-bold text-brutal-yellow text-xl mb-1">{card.title}</p>
@@ -350,10 +350,10 @@ export default function MarketingPage() {
         <section className="py-16 sm:py-28 bg-brutal-yellow text-brutal-charcoal border-y-4 border-brutal-charcoal text-center">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.85] mb-6 sm:mb-8">
-              Comece a automatizar hoje
+              Semana que vem já pode ser diferente.
             </h2>
             <p className="text-base sm:text-xl font-bold opacity-60 mb-8 sm:mb-12">
-              30 dias gratuitos. Sem cartão. Vagas limitadas.
+              30 dias grátis. Setup em 30 minutos. Só 10 vagas por vez.
             </p>
             <a
               href="https://wa.me/5551982759010?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20programa%20piloto%20do%20Assistly"
