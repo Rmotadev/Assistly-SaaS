@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { FaqAccordion } from '@/components/landing/FaqAccordion'
 import { DemoModal } from '@/components/landing/DemoModal'
+import { Reveal, Stagger, StaggerItem } from '@/components/landing/Reveal'
+import { HeroFadeUp, HighlightSweep } from '@/components/landing/HeroAnimated'
 import {
   FileText,
   BarChart3,
@@ -43,9 +45,10 @@ export default function MarketingPage() {
               href="https://wa.me/5551982759010?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20programa%20piloto%20do%20Assistly"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 sm:px-6 sm:py-2.5 bg-brutal-yellow text-brutal-charcoal border-3 sm:border-4 border-brutal-charcoal font-bold text-sm sm:text-base brutal-shadow brutal-transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+              className="px-4 py-2 sm:px-6 sm:py-2.5 bg-brutal-yellow text-brutal-charcoal border-3 sm:border-4 border-brutal-charcoal font-bold text-sm sm:text-base brutal-shadow brutal-transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none whitespace-nowrap"
             >
-              Participar do piloto
+              <span className="sm:hidden">Piloto</span>
+              <span className="hidden sm:inline">Participar do piloto</span>
             </a>
           </div>
         </div>
@@ -55,65 +58,74 @@ export default function MarketingPage() {
         {/* Hero */}
         <section className="bg-brutal-grid-light pt-28 pb-20 sm:pt-40 sm:pb-32">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            <div className="inline-block bg-brutal-charcoal text-white px-3 py-1 sm:px-4 sm:py-1.5 font-bold text-xs sm:text-sm uppercase tracking-widest mb-8 sm:mb-10">
-              Agentes de IA para escritórios contábeis
-            </div>
-            <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-brutal-charcoal leading-[0.85] mb-6 sm:mb-8">
-              Devolva{' '}
-              <span className="relative inline-block">
-                <span className="relative z-10">40 horas</span>
-                <span className="absolute -inset-1 sm:-inset-2 bg-brutal-yellow -rotate-2 -z-0" />
-              </span>{' '}
-              por mês pra sua equipe.
-            </h1>
-            <p className="text-base sm:text-xl md:text-2xl font-medium text-brutal-charcoal/60 mb-10 sm:mb-12 max-w-2xl mx-auto">
-              Três agentes de IA cuidam da digitação de NFs, do relatório semanal e do atendimento no WhatsApp — integrados ao Domínio, TOTVS ou ContaAzul.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12 sm:mb-16">
-              <a
-                href="https://wa.me/5551982759010?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20programa%20piloto%20do%20Assistly"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-4 sm:px-10 sm:py-5 bg-brutal-charcoal text-white font-bold text-base sm:text-lg border-4 border-brutal-charcoal shadow-[6px_6px_0px_0px_rgba(255,225,124,1)] sm:shadow-[8px_8px_0px_0px_rgba(255,225,124,1)] brutal-transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(255,225,124,1)]"
-              >
-                Quero participar do piloto
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <DemoModal />
-            </div>
-            <p className="font-bold text-sm sm:text-base text-brutal-charcoal/40">
-              Programa piloto · 10 escritórios por vez
-            </p>
+            <HeroFadeUp delay={0}>
+              <div className="inline-block bg-brutal-charcoal text-white px-3 py-1 sm:px-4 sm:py-1.5 font-bold text-xs sm:text-sm uppercase tracking-widest mb-8 sm:mb-10">
+                Agentes de IA para escritórios contábeis
+              </div>
+            </HeroFadeUp>
+            <HeroFadeUp delay={0.1}>
+              <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-brutal-charcoal leading-[0.85] mb-6 sm:mb-8">
+                Devolva{' '}
+                <HighlightSweep>40 horas</HighlightSweep>{' '}
+                por mês pra sua equipe.
+              </h1>
+            </HeroFadeUp>
+            <HeroFadeUp delay={0.25}>
+              <p className="text-base sm:text-xl md:text-2xl font-medium text-brutal-charcoal/60 mb-10 sm:mb-12 max-w-2xl mx-auto">
+                Três agentes de IA cuidam da digitação de NFs, do relatório semanal e do atendimento no WhatsApp — integrados ao Domínio, TOTVS ou ContaAzul.
+              </p>
+            </HeroFadeUp>
+            <HeroFadeUp delay={0.4}>
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12 sm:mb-16">
+                <a
+                  href="https://wa.me/5551982759010?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20programa%20piloto%20do%20Assistly"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 w-full sm:w-auto justify-center px-8 py-4 sm:px-10 sm:py-5 bg-brutal-charcoal text-white font-bold text-base sm:text-lg border-4 border-brutal-charcoal shadow-[6px_6px_0px_0px_rgba(255,225,124,1)] sm:shadow-[8px_8px_0px_0px_rgba(255,225,124,1)] brutal-transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(255,225,124,1)]"
+                >
+                  Quero participar do piloto
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+                <DemoModal />
+              </div>
+            </HeroFadeUp>
+            <HeroFadeUp delay={0.55}>
+              <p className="font-bold text-sm sm:text-base text-brutal-charcoal/40">
+                Programa piloto · 10 escritórios por vez
+              </p>
+            </HeroFadeUp>
           </div>
         </section>
 
         {/* Problema */}
         <section className="py-16 sm:py-28 bg-brutal-charcoal text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <h2 className="font-display text-4xl sm:text-6xl md:text-8xl leading-[0.85] mb-10 sm:mb-16">
-              Quanto tempo você <span className="text-brutal-yellow">perde</span> todo mês?
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+            <Reveal>
+              <h2 className="font-display text-4xl sm:text-6xl md:text-8xl leading-[0.85] mb-10 sm:mb-16">
+                Quanto tempo você <span className="text-brutal-yellow">perde</span> todo mês?
+              </h2>
+            </Reveal>
+            <Stagger className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               {[
                 { icon: FileText, title: 'Digitação de NF', stat: '40h/mês', desc: 'transcrevendo XML no ERP' },
                 { icon: BarChart3, title: 'Relatório manual', stat: '3h/sexta', desc: 'montando planilha pro cliente' },
                 { icon: MessageCircle, title: 'Leads sem resposta', stat: '67%', desc: 'chegam fora do horário comercial' },
               ].map((item, i) => (
-                <div key={i} className="border-4 border-white/10 p-6 sm:p-8 text-center brutal-transition hover:bg-white/5">
+                <StaggerItem key={i} className="border-4 border-white/10 p-6 sm:p-8 text-center brutal-transition hover:bg-white/5 hover:-translate-y-1">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brutal-yellow border-4 border-brutal-charcoal flex items-center justify-center mx-auto mb-4 sm:mb-6">
                     <item.icon className="w-6 h-6 sm:w-7 sm:h-7 text-brutal-charcoal" />
                   </div>
                   <p className="font-display text-4xl sm:text-6xl text-brutal-yellow mb-2 sm:mb-3">{item.stat}</p>
                   <p className="font-bold text-base sm:text-lg uppercase mb-1">{item.title}</p>
                   <p className="text-brutal-sage text-sm">{item.desc}</p>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </div>
         </section>
 
         {/* Funcionalidades */}
-        <section id="funcionalidades" className="py-16 sm:py-28 bg-brutal-grid-light">
+        <section id="funcionalidades" className="scroll-mt-20 py-16 sm:py-28 bg-brutal-grid-light">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="font-display text-4xl sm:text-7xl md:text-8xl lg:text-9xl text-brutal-charcoal leading-[0.85] mb-4 sm:mb-6">
               Três agentes.{' '}
@@ -128,7 +140,7 @@ export default function MarketingPage() {
 
             <div className="space-y-8 text-left">
               {/* Agente NF */}
-              <div className="bg-white border-4 border-brutal-charcoal p-5 sm:p-10 brutal-shadow">
+              <Reveal className="bg-white border-4 border-brutal-charcoal p-5 sm:p-10 brutal-shadow">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div>
                     <div className="w-16 h-16 bg-brutal-yellow border-4 border-brutal-charcoal flex items-center justify-center mb-8 brutal-shadow">
@@ -158,10 +170,10 @@ export default function MarketingPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
 
               {/* Agente Relatório */}
-              <div className="bg-white border-4 border-brutal-charcoal p-5 sm:p-10 brutal-shadow">
+              <Reveal delay={0.1} className="bg-white border-4 border-brutal-charcoal p-5 sm:p-10 brutal-shadow">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className="order-2 md:order-1 bg-brutal-yellow border-4 border-brutal-charcoal p-8 shadow-[8px_8px_0px_0px_rgba(23,30,25,1)]">
                     <div className="font-display text-3xl text-brutal-charcoal mb-6 pb-4 border-b-4 border-brutal-charcoal">Resumo Semanal</div>
@@ -195,10 +207,10 @@ export default function MarketingPage() {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </Reveal>
 
               {/* Agente Leads */}
-              <div className="bg-white border-4 border-brutal-charcoal p-10 brutal-shadow">
+              <Reveal delay={0.15} className="bg-white border-4 border-brutal-charcoal p-5 sm:p-10 brutal-shadow">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div>
                     <div className="w-16 h-16 bg-brutal-yellow border-4 border-brutal-charcoal flex items-center justify-center mb-8 brutal-shadow">
@@ -230,7 +242,7 @@ export default function MarketingPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -238,24 +250,26 @@ export default function MarketingPage() {
         {/* Como funciona */}
         <section className="py-16 sm:py-28 bg-white border-y-4 border-brutal-charcoal/10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <h2 className="font-display text-4xl sm:text-6xl md:text-8xl text-brutal-charcoal leading-[0.85] mb-12 sm:mb-20">
-              Pronto em <span className="text-brutal-yellow">30 minutos</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-12">
+            <Reveal>
+              <h2 className="font-display text-4xl sm:text-6xl md:text-8xl text-brutal-charcoal leading-[0.85] mb-12 sm:mb-20">
+                Pronto em <span className="text-brutal-yellow">30 minutos</span>
+              </h2>
+            </Reveal>
+            <Stagger className="grid md:grid-cols-3 gap-12">
               {[
                 { n: '01', t: 'Conecte', d: 'Plugue seu ERP e canais de atendimento.' },
                 { n: '02', t: 'Configure', d: 'Escolha horários, regras e tom de voz.' },
                 { n: '03', t: 'Automatize', d: 'Os agentes trabalham. Você acompanha.' },
               ].map((step, i) => (
-                <div key={i} className="group">
+                <StaggerItem key={i} className="group">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-brutal-yellow border-4 border-brutal-charcoal flex items-center justify-center font-display text-3xl sm:text-5xl text-brutal-charcoal mx-auto mb-6 brutal-shadow group-hover:shadow-none group-hover:translate-x-1 group-hover:translate-y-1 brutal-transition">
                     {step.n}
                   </div>
                   <h3 className="font-display text-2xl sm:text-3xl mb-3">{step.t}</h3>
                   <p className="text-brutal-charcoal/50 font-medium">{step.d}</p>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </div>
         </section>
 
@@ -272,7 +286,7 @@ export default function MarketingPage() {
         </section>
 
         {/* Programa Piloto */}
-        <section id="piloto" className="py-16 sm:py-28 bg-brutal-grid-light">
+        <section id="piloto" className="scroll-mt-20 py-16 sm:py-28 bg-brutal-grid-light">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-brutal-charcoal leading-[0.85] mb-4 sm:mb-6">
               Programa{' '}
@@ -284,7 +298,7 @@ export default function MarketingPage() {
             <p className="text-base sm:text-lg text-brutal-charcoal/50 font-medium mb-12 sm:mb-20 max-w-2xl mx-auto">
               10 escritórios por vez. Você usa 30 dias por conta da casa — a gente aprende com o seu fluxo e melhora o produto junto.
             </p>
-            <div className="max-w-2xl mx-auto bg-white border-4 border-brutal-charcoal p-6 sm:p-10 text-left brutal-shadow">
+            <Reveal className="max-w-2xl mx-auto bg-white border-4 border-brutal-charcoal p-6 sm:p-10 text-left brutal-shadow">
               <h3 className="font-display text-2xl sm:text-4xl text-brutal-charcoal mb-6">O que está incluso</h3>
               <ul className="space-y-4 mb-8">
                 {[
@@ -310,7 +324,7 @@ export default function MarketingPage() {
                 Quero participar do piloto
                 <ArrowRight className="w-5 h-5" />
               </a>
-            </div>
+            </Reveal>
           </div>
         </section>
 
@@ -320,24 +334,24 @@ export default function MarketingPage() {
             <h2 className="font-display text-4xl sm:text-6xl md:text-8xl leading-[0.85] mb-12 sm:mb-20">
               Por que <span className="text-brutal-yellow">entrar agora</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+            <Stagger className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               {[
                 { title: 'Grátis', subtitle: 'Sem risco', desc: '30 dias completos. Sem cartão, sem pegadinha, cancela num clique.' },
                 { title: 'Prioridade', subtitle: 'Acesso direto', desc: 'Fala com quem constrói. Sua opinião entra no roadmap na mesma semana.' },
                 { title: 'Exclusivo', subtitle: 'Preço travado', desc: 'Quem entra no piloto congela o preço quando os planos comerciais lançarem.' },
               ].map((card, i) => (
-                <div key={i} className="border-4 border-white/10 p-8 text-left brutal-transition hover:bg-white/5">
+                <StaggerItem key={i} className="border-4 border-white/10 p-8 text-left brutal-transition hover:bg-white/5 hover:-translate-y-1">
                   <p className="font-bold text-brutal-yellow text-xl mb-1">{card.title}</p>
                   <p className="text-sm text-brutal-sage mb-6">{card.subtitle}</p>
                   <p className="font-medium leading-relaxed opacity-80">{card.desc}</p>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </div>
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="py-16 sm:py-28 bg-white">
+        <section id="faq" className="scroll-mt-20 py-16 sm:py-28 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-10 sm:mb-16">
             <h2 className="font-display text-4xl sm:text-6xl md:text-8xl text-brutal-charcoal leading-[0.85]">
               Perguntas <span className="text-brutal-sage">frequentes</span>
