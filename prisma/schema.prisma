@@ -16,7 +16,13 @@ model Tenant {
   horarioExpedienteInicio String   @default("09:00")
   horarioExpedienteFim    String   @default("18:00")
   whatsappPhoneNumberId   String?  @unique
+  whatsappBusinessAccountId String? @unique
+  whatsappAccessToken     String?  @db.Text
   instagramUserId         String?  @unique
+  googleCalendarId        String?
+  googleRefreshToken      String?  @db.Text
+  googleAccessToken       String?  @db.Text
+  googleTokenExpiresAt    DateTime?
   onboardingCompleto      Boolean  @default(false)
   criadoEm                DateTime @default(now())
   atualizadoEm            DateTime @updatedAt
@@ -25,6 +31,7 @@ model Tenant {
   reports      Report[]
   leads        Lead[]
   integrations Integration[]
+  templates    MessageTemplate[]
 }
 model User {
   id       String   @id @default(cuid())
@@ -99,11 +106,54 @@ model Lead {
   tenantId         String
   canal            CanalLead
   contato          String
+  nome             String?
   mensagensJson    Json       @default("[]")
   qualificacaoJson Json       @default("{}")
   status           StatusLead @default(NOVO)
+  funilStage       FunilStage @default(NOVO)
+  agentActive      Boolean    @default(true)
+  ultimaMensagemEm DateTime?
+  janela24hAte     DateTime?
+  googleEventId    String?
   criadoEm         DateTime   @default(now())
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  atualizadoEm     DateTime   @updatedAt
+  tenant   Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  messages Message[]
+  @@index([tenantId])
+  @@index([tenantId, funilStage])
+  @@index([tenantId, ultimaMensagemEm])
+}
+model Message {
+  id         String        @id @default(cuid())
+  leadId     String
+  direction  MsgDirection
+  autor      MsgAutor
+  body       String        @db.Text
+  mediaUrl   String?
+  mediaType  String?
+  templateId String?
+  metaMsgId  String?
+  criadoEm   DateTime      @default(now())
+  lead     Lead             @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  template MessageTemplate? @relation(fields: [templateId], references: [id])
+  @@index([leadId, criadoEm])
+}
+model MessageTemplate {
+  id               String         @id @default(cuid())
+  tenantId         String
+  nome             String
+  categoria        TemplateCategoria @default(UTILITY)
+  idioma           String         @default("pt_BR")
+  body             String         @db.Text
+  variaveis        Json           @default("[]")
+  status           TemplateStatus @default(RASCUNHO)
+  metaTemplateId   String?
+  motivoRejeicao   String?
+  criadoEm         DateTime       @default(now())
+  atualizadoEm     DateTime       @updatedAt
+  tenant   Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  messages Message[]
+  @@unique([tenantId, nome])
   @@index([tenantId])
 }
 model Integration {
@@ -141,14 +191,43 @@ enum CanalLead {
   WHATSAPP 
   INSTAGRAM 
 }
-enum StatusLead { 
-  NOVO 
-  QUALIFICADO 
-  AGENDADO 
-  PERDIDO 
+enum StatusLead {
+  NOVO
+  QUALIFICADO
+  AGENDADO
+  PERDIDO
 }
-enum SistemaContabil { 
-  DOMINIO 
-  TOTVS 
-  CONTAAZUL 
+enum FunilStage {
+  NOVO
+  QUALIFICADO
+  REUNIAO_MARCADA
+  PROPOSTA_ENVIADA
+  FECHADO
+  PERDIDO
+}
+enum MsgDirection {
+  INBOUND
+  OUTBOUND
+}
+enum MsgAutor {
+  LEAD
+  AGENTE
+  HUMANO
+}
+enum TemplateCategoria {
+  MARKETING
+  UTILITY
+  AUTHENTICATION
+}
+enum TemplateStatus {
+  RASCUNHO
+  PENDENTE
+  APROVADO
+  REJEITADO
+  PAUSADO
+}
+enum SistemaContabil {
+  DOMINIO
+  TOTVS
+  CONTAAZUL
 }
